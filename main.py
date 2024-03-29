@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import base64
 import seaborn as sns
+from math import pi
 
 # Page configuration
 st.set_page_config(layout="wide")
@@ -230,7 +231,7 @@ page = st.sidebar.radio('Menu', ['Sales Strategy', 'Market Prioritization', 'Win
 
 if page == 'Sales Strategy':
 
-    st.markdown('<div class="title"> Wines to Increase Sales </div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Wines to Increase Sales </div>', unsafe_allow_html=True)
     st.text('')
     st.markdown("""
     <div class="text-box">
@@ -262,7 +263,7 @@ if page == 'Sales Strategy':
 
 if page == 'Market Prioritization':
 
-    st.markdown('<div class="title">Where to Invest Our Limited Marketing Budget?</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Where to Invest Our Limited Marketing Budget?</div>', unsafe_allow_html=True)
     st.text('')
     st.markdown("""
     <div class="text-box">
@@ -298,7 +299,7 @@ if page == 'Market Prioritization':
             st.error("No wines found with the specified criteria.")
 
 if page == 'Winery Awards':
-    st.markdown('<div class="title">Awards to the Best Wineries</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Awards to the Best Wineries</div>', unsafe_allow_html=True)
     st.text('')
     st.markdown("""
     <div class="text-box">
@@ -317,7 +318,7 @@ if page == 'Winery Awards':
 
 if page == 'Keyword Identification':
 
-    st.markdown('<div class="title">Find the Perfect Wines for Customers with Specific Tastes</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Find the Perfect Wines for Customers with Specific Tastes</div>', unsafe_allow_html=True)
     st.text('')
     st.markdown("""
     <div class="text-box">
@@ -344,7 +345,7 @@ if page == 'Keyword Identification':
 
 
 if page == 'Grape Selection':
-    st.markdown('<div class="title">Top Grapes and Their Best-Rated Bottles</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Top Grapes and Their Best-Rated Bottles</div>', unsafe_allow_html=True)
     st.sidebar.text("")
     st.sidebar.text('Grapes Options:')
     qnt_grapes = st.sidebar.slider('Number of Grapes', 1, 10, 3)
@@ -391,7 +392,7 @@ if page == 'Grape Selection':
 
 
 if page == 'Country Leaderboard':
-    st.markdown('<div class="title">Country Leaderboard</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Country Leaderboard</div>', unsafe_allow_html=True)
     st.text('')
     st.markdown("""
         <div class="text-box">
@@ -468,20 +469,8 @@ if page == 'Country Leaderboard':
 
         
 if page == 'VIP Recommendations':
-    
-    
-    st.markdown('<div class="title">The Top Grapes Choices for Our VIP Customers</div>', unsafe_allow_html=True)
-    st.text('')
-    st.markdown("""
-    <div class="text-box">
-        Satisfy the discerning palates of your VIP customers with our premium recommendations of Cabernet Sauvignon. <br>
-        Discover the wines that stand out and impress even the most discerning wine connoisseurs.
-    </div>
-    """, unsafe_allow_html=True)
-    st.text('')
 
-
-    col1, col2 = st.columns([4, 2])
+    col, col1, col2  = st.columns([1,4,1])
 
     rating_min = st.sidebar.slider('Minimum Rating', min_value=4.0, max_value=5.0, value=4.5, step=0.1)
     grape = st.sidebar.selectbox('Grape', options=['Cabernet Sauvignon', 'Merlot', 'Pinot Noir','Sangiovese', 'Malbec', 'Tempranillo', 'Chardonnay'])
@@ -492,33 +481,48 @@ if page == 'VIP Recommendations':
     # Fetching data with applied filters
     best_wines_data = get_best_wines(rating_min, grape, price_range, rank_min, minimum_rating)
 
+    num_samples = min(len(best_wines_data), 5)  # Retira 5 ou o número disponível de amostras
+    selected_wines = best_wines_data.sample(n=num_samples)
+
     # Verificando se os dados foram encontrados
-    if best_wines_data.empty:
-        st.error("No wines found with the specified criteria.")
-    else:
+    if not best_wines_data.empty:
         # Displaying filtered data
         with col1:
+            st.markdown('<div class="title">The Top Grapes Choices for Our VIP Customers</div>', unsafe_allow_html=True)
+            st.markdown("""
+            <div class="text-box">
+                Satisfy the discerning palates of your VIP customers with our premium recommendations of Cabernet Sauvignon. <br>
+                Discover the wines that stand out and impress even the most discerning wine connoisseurs.
+            </div>
+            """, unsafe_allow_html=True)
             st.dataframe(best_wines_data)
 
-        with col2:
-            sns.set_style("whitegrid")
+            if len(best_wines_data) > 5:
+                selected_wines = best_wines_data.sample(n=5)
 
-            # Gráfico de Densidade para as Classificações
-            plt.figure(figsize=(10, 6))
-            sns.kdeplot(best_wines_data['average_rating'], shade=True, color="r", alpha=0.8)
-            plt.axvline(x=best_wines_data['average_rating'].mean(), color='k', linestyle='--', label='Média')
-            plt.axvline(x=best_wines_data['average_rating'].median(), color='g', linestyle=':', label='Mediana')
-            plt.title('Distribuição das Classificações dos Vinhos', fontsize=16)
-            plt.xlabel('Classificação Média', fontsize=14)
-            plt.ylabel('Densidade', fontsize=14)
-            plt.legend()
+            # Normalizar os dados
+            categories = ['average_price_euros', 'average_rating', 'total_ratings_count']  # Adicione mais categorias conforme necessário
+            normalized_wines = (selected_wines[categories] - selected_wines[categories].min()) / (selected_wines[categories].max() - selected_wines[categories].min())
 
-            # Gráfico de Caixa para os Preços
-            plt.figure(figsize=(10, 6))
-            sns.boxplot(x=best_wines_data['average_price_euros'], color="lightgreen")
-            plt.title('Distribuição de Preços dos Vinhos', fontsize=16)
-            plt.xlabel('Preço Médio (€)', fontsize=14)
+            # Número de variáveis
+            N = len(categories)
+            angles = [n / float(N) * 2 * pi for n in range(N)]
+            angles += angles[:1]
 
-            # Ajustando as configurações do gráfico para melhorar a estética
-            plt.tight_layout()
-            plt.show()
+            fig, ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
+
+            # Repetir o primeiro valor no final para fechar o círculo do radar chart
+            for index, row in normalized_wines.iterrows():
+                data = row.tolist()
+                data += data[:1]
+                ax.plot(angles, data, linewidth=1, linestyle='solid', label=selected_wines.loc[index, 'wine_name'])
+                ax.fill(angles, data, alpha=0.25)
+
+            # Adiciona os nomes das categorias
+            ax.set_xticks(angles[:-1])
+            ax.set_xticklabels(categories)
+
+            plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+            st.pyplot(fig)  # Exibir o gráfico no Streamlit
+    else:
+        st.error("No wines found with the specified criteria.")
