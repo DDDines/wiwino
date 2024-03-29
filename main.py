@@ -9,24 +9,19 @@ import seaborn as sns
 st.set_page_config(layout="wide")
 
 # Function to get the image in base64 for background
-def get_image_base64(path):
-    with open(path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode('utf-8')
-
-# Function to add background image
-def add_bg_from_base64(image_base64):
+def add_bg_from_url(url):
     st.markdown(f"""
          <style>
          .stApp {{
-             background-image: url("data:image/jpeg;base64,{image_base64}");
+             background-image: url("{url}");
              background-size: cover;
          }}
          </style>
          """, unsafe_allow_html=True)
 
-image_path = 'C:\\Programação\\Becode\\BXL-Bouman-7\\projects\\07-wiwino\\wine_5.jpg'
-image_base64 = get_image_base64(image_path)
-add_bg_from_base64(image_base64)
+# URL da imagem
+image_url = 'https://revistaadega.uol.com.br/media/evolucao_do_vinho_tinto.jpeg'
+add_bg_from_url(image_url)
 
 st.markdown("""
 <style>
