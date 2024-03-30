@@ -14,7 +14,7 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 
 ## How to Use
 
-1. **Access:** Begin by navigating to [\[insert website link\]](https://dddines-wiwino-main-er8bmn.streamlit.app/) on your preferred internet browser.
+1. **Access:** Begin by navigating to \[Wiwino Wine Market Analysis\](https://dddines-wiwino-main-er8bmn.streamlit.app/) on your preferred internet browser.
 2. **Navigation:** Use the sidebar menu to seamlessly switch between the various analytical tools and datasets provided.
 3. **Filters:** Employ filters to refine your analyses and tailor the visualizations to your specific needs.
 4. **Visualization:** Delve into the data through intuitive tables and dynamic interactive charts.
