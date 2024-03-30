@@ -25,7 +25,7 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 - **Back-end:** SQLite, Python
 - **Libraries:** Pandas, Matplotlib, Seaborn
 
-## Installation and Local Execution
+## Installation and **Local Execution**
 
 Follow these steps to get the application up and running on your local machine:
 
@@ -40,11 +40,11 @@ git clone https://github.com/DDDines/wiwino
 pip install -r requirements.txt
 ```
 
-### Additional Setup for Local Execution
+### **Additional Setup for Local Execution**
 
 While the Streamlit server facilitates direct web access, running the application locally requires the following:
 
-#### Streamlit
+#### **Streamlit**
 
 Ensure Streamlit is installed for local web app functionality:
 
