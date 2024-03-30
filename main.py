@@ -2,7 +2,6 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
-import base64
 import seaborn as sns
 from math import pi
 
