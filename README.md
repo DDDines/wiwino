@@ -25,39 +25,49 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 - **Back-end:** SQLite, Python
 - **Libraries:** Pandas, Matplotlib, Seaborn
 
-## Installation and **Local Execution**
+## Installation and Local Execution
 
 Follow these steps to get the application up and running on your local machine:
 
-```bash
+\```bash
+
 # Clone the repository
+
 git clone https://github.com/DDDines/wiwino
 
 # Install the dependencies
-pip install -r requirements.txt
 
-# Additional Setup for Local Execution
+pip install -r requirements.txt
+\```
+
+### Additional Setup for Local Execution
+
 While the Streamlit server facilitates direct web access, running the application locally requires the following:
 
-### Streamlit
+#### Streamlit
+
 Ensure Streamlit is installed for local web app functionality:
 
+\```bash
 pip install streamlit
+\```
 
-####SQLite
+#### SQLite
+
 SQLite must be installed to manage the application's dataset:
-Follow the installation guide at SQLite Download Page.
+Follow the installation guide at the [SQLite Download Page](https://www.sqlite.org/download.html).
 
-#Start the application
+### Start the application
+
+\```bash
 streamlit run main.py
-
-```
+\```
 
 ## Contribution
 
 Your contributions are welcome and greatly appreciated! Follow these steps to contribute:
 
-1. Fork the project repository.
+1. Fork the project repository. [Github](https://github.com/DDDines/wiwino)
 2. Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 4. Push the changes to your branch (`git push origin feature/AmazingFeature`).
