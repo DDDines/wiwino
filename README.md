@@ -14,7 +14,7 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 
 ## How to Use
 
-1. **Access:** Begin by navigating to [insert website link] on your preferred internet browser.
+1. **Access:** Begin by navigating to [\[insert website link\]](https://dddines-wiwino-main-er8bmn.streamlit.app/) on your preferred internet browser.
 2. **Navigation:** Use the sidebar menu to seamlessly switch between the various analytical tools and datasets provided.
 3. **Filters:** Employ filters to refine your analyses and tailor the visualizations to your specific needs.
 4. **Visualization:** Delve into the data through intuitive tables and dynamic interactive charts.
@@ -25,7 +25,7 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 - **Back-end:** SQLite, Python
 - **Libraries:** Pandas, Matplotlib, Seaborn
 
-## Installation and Local Execution
+## Installation and **Local Execution**
 
 Follow these steps to get the application up and running on your local machine:
 
@@ -41,7 +41,6 @@ While the Streamlit server facilitates direct web access, running the applicatio
 
 ### Streamlit
 Ensure Streamlit is installed for local web app functionality:
-
 
 pip install streamlit
 
@@ -66,8 +65,4 @@ Your contributions are welcome and greatly appreciated! Follow these steps to co
 
 ## Contact
 
-For further information, questions, or feedback, please contact us at [contact email].
-
-```
-
-```
+For further information, questions, or feedback, please contact me at juliobarizon@gmail.com.
