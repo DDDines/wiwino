@@ -29,7 +29,7 @@ Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based 
 
 Follow these steps to get the application up and running on your local machine:
 
-````bash
+```bash
 # Clone the repository
 git clone https://github.com/DDDines/wiwino
 
@@ -64,8 +64,10 @@ Your contributions are welcome and greatly appreciated! Follow these steps to co
 4. Push the changes to your branch (`git push origin feature/AmazingFeature`).
 5. Create a new Pull Request.
 
-
 ## Contact
 
 For further information, questions, or feedback, please contact us at [contact email].
-````
+
+```
+
+```
