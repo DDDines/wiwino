@@ -52,7 +52,7 @@ Follow the installation guide at SQLite Download Page.
 #Start the application
 streamlit run main.py
 
-```bash
+```
 
 ## Contribution
 
