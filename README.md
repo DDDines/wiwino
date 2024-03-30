@@ -1,106 +1,71 @@
-# Wiwino market analysis
+# Wiwino Wine Market Analysis
 
-- Repository: `wine-market-analysis`
-- Type: `Consolidation`
-- Duration: `1 week`
-- Deadline: `29/03/2024 3:00 PM (analysis)`
-- Team: `solo`
+Welcome to the Wiwino Wine Market Analysis platform - an interactive, web-based tool designed for deep dives into the wine market. Our platform leverages a comprehensive dataset from the wine industry, enabling users to uncover critical insights into wines, wineries, grape varieties, and overarching market trends.
 
-## Mission Objectives
+## Features
 
-Consolidate your knowledge in SQL, specifically in:
-- SELECT operations
-- JOIN operations
-- GROUP BY operations
-- AGGREGATIONS operations *(average, sum, ...)*
-- LIMIT operations
-- ... and surely many others 😁
+- **Sales Strategy:** Pinpoint the top 10 wines poised to elevate your sales, chosen based on their ratings and popularity among connoisseurs.
+- **Market Prioritization:** Ascertain which countries should be the focus of your marketing endeavors by analyzing robust sales data and wine ratings.
+- **Winery Awards:** Spotlight wineries that are a cut above the rest in terms of quality and innovation.
+- **Keyword Identification:** Match wines to specific consumer taste profiles through a meticulous analysis of keyword-associated preferences.
+- **Grape Selection:** Investigate the world's most prevalent grape varieties and discover the finest wines they produce.
+- **Country Leaderboard:** Explore a ranking of countries based on the average ratings of their wines, offering a panoramic view of global wine excellence.
+- **VIP Recommendations:** Curate personalized wine recommendations for VIP clients, with a special focus on their preferred grape varieties.
 
-## Learning Objectives
+## How to Use
 
-- To be able to read and understand a SQL database diagram
-- To be able to query a SQL database 
-- To be able to write efficient SQL queries
-- To be able to create visuals from aggregated insights coming from queries
-- To be able to present a market analysis with clear numbers and graphs
+1. **Access:** Begin by navigating to [insert website link] on your preferred internet browser.
+2. **Navigation:** Use the sidebar menu to seamlessly switch between the various analytical tools and datasets provided.
+3. **Filters:** Employ filters to refine your analyses and tailor the visualizations to your specific needs.
+4. **Visualization:** Delve into the data through intuitive tables and dynamic interactive charts.
 
-## The Mission
+## Technologies Used
 
-> We are the company _Wiwino_, proudly active in the wine industry. We have been gathering data about wines from our users for years. We want to have a better understanding of the wine market by analyzing this data.
+- **Front-end:** Streamlit
+- **Back-end:** SQLite, Python
+- **Libraries:** Pandas, Matplotlib, Seaborn
 
-Do the analysis, summarize your output, and present the results.
+## Installation and Local Execution
 
-## Data
+Follow these steps to get the application up and running on your local machine:
 
-Wiwino was so kind to gather their data into a database. You can find the [SQLite](https://www.sqlite.org/index.html) database in the `db/` folder or download it from [here](https://drive.google.com/file/d/122rj3-c0mpFPL04IXeXjSp2_H66-33RS/view?usp=sharing).
+````bash
+# Clone the repository
+git clone https://github.com/DDDines/wiwino
 
-Below is the database diagram. The `yellow keys` symbol represents `PRIMARY KEYS` while the `blue keys` symbol represents `FOREIGN KEYS`. Each column is typed. You can see that the types are not exactly the same as Python's types. Here is a [list of SQL types](https://www.w3schools.com/sql/sql_datatypes.asp).
+# Install the dependencies
+pip install -r requirements.txt
 
-![DB diagram](./assets/vivino_db_diagram_horizontal.png)
+# Additional Setup for Local Execution
+While the Streamlit server facilitates direct web access, running the application locally requires the following:
 
-## Must-have features
+### Streamlit
+Ensure Streamlit is installed for local web app functionality:
+```bash
+pip install streamlit
 
-Crunch the numbers to arrive at a complete market analysis.
+###SQLite
+SQLite must be installed to manage the application's dataset:
+Follow the installation guide at SQLite Download Page.
 
-You should at least answers these questions from the perspective of Wiwino:
-- We want to highlight 10 wines to increase our sales. Which ones should we choose and why?
-- We have a limited marketing budget for this year. Which country should we prioritise and why?
-- We would like to give awards to the best wineries. Come up with 3 relevant ones. Which wineries should we choose and why?
-- We detected that a big cluster of customers likes a specific combination of tastes. We identified a few keywords that match these tastes: _coffee_, _toast_, _green apple_, _cream_, and _citrus_ (note that these keywords are case sensitive ⚠️). We would like you to find all the wines that are related to these keywords. Check that **at least 10 users confirm those keywords**, to ensure the accuracy of the selection. Additionally, identify an appropriate group name for this cluster.
-- We would like to select wines that are easy to find all over the world. **Find the top 3 most common `grape`s all over the world** and **for each grape, give us the the 5 best rated wines**.
-- We would like to create a country leaderboard. Come up with a visual that shows the **average wine rating for each `country`**. Do the same for the `vintages`.
-- One of our VIP clients likes _Cabernet Sauvignon_ and would like our top 5 recommendations. Which wines would you recommend to him?
+#Start the application
+streamlit run main.py
 
-Give us any other useful insights you found in the data. **Be creative!** 😉
+## Contribution
 
-If a certain question is hard or not possible to answer with the data you have been given, document what is missing. This can always happen...
+Your contributions are welcome and greatly appreciated! Follow these steps to contribute:
 
-## Nice-to-have features
+1. Fork the project repository.
+2. Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push the changes to your branch (`git push origin feature/AmazingFeature`).
+5. Create a new Pull Request.
 
-- Optimise your queries to obtain the results as fast as possible.
-- How would you improve the data (quality), the database schema, or the typing?
-- Implement visualization best practices
-  - Data storytelling, nice design, relevancy to the questions asked, ...
+## License
 
-## Constraints
+This project is licensed under the [LICENSE NAME] License - see the LICENSE file for details.
 
-- You are not allowed to use pandas or similar tools for the data analysis, you should use SQL and SQL only
-    - For instance, use SQL `JOIN`s to cross-reference tables, not `pd.merge()`
-    - But you can of course use a Python ORM library if you like
-- Write your queries in dedicated `.sql` files or a `queries.py` file with the queries as strings
-- For visualizing your insights, use either Python or Excel
+## Contact
 
-## Deliverables
-
-1. Publish your source code in a GitHub repository
-2. Pimp the README file
-    - Include the main insights in it
-3. Show us your results in a nice presentation
-    - Can be with PowerPoint, a smooth Jupyter notebook & Markdown, a printout, ...
-
-## Steps
-
-1. Create the repository
-2. Study the project brief (Who? Why? What?)
-3. Identify the technical challenges (How?)
-4. Start exploring the data
-5. Answer the questions with clear queries
-6. Create a presentation with your findings
-7. Clean your code and finish up your repository
-
-> Again: be creative in both the analysis and delivery!!! Try to impress us.
-
-## Evaluation
-
-| Criterion      | Indicator                                              | Yes/No |
-| -------------- | ------------------------------------------------------ | ------ |
-| 1. Is complete | You have an answer for each must-have question         |        |
-|                | You push your changes to GitHub at least once a day    |        |
-|                | There is a visualization available when it makes sense |        |
-| 2. Is great    | You SQL queries are optimized                          |        |
-|                | Your code is commented/typed                           |        |
-|                | You presentation is clear and well designed            |        |
-
-## Final note
-
-![Drinking for work purposes](./assets/wine.gif)
+For further information, questions, or feedback, please contact us at [contact email].
+````
