@@ -41,15 +41,18 @@ While the Streamlit server facilitates direct web access, running the applicatio
 
 ### Streamlit
 Ensure Streamlit is installed for local web app functionality:
-```bash
+
+
 pip install streamlit
 
-###SQLite
+####SQLite
 SQLite must be installed to manage the application's dataset:
 Follow the installation guide at SQLite Download Page.
 
 #Start the application
 streamlit run main.py
+
+```bash
 
 ## Contribution
 
@@ -61,9 +64,6 @@ Your contributions are welcome and greatly appreciated! Follow these steps to co
 4. Push the changes to your branch (`git push origin feature/AmazingFeature`).
 5. Create a new Pull Request.
 
-## License
-
-This project is licensed under the [LICENSE NAME] License - see the LICENSE file for details.
 
 ## Contact
 
