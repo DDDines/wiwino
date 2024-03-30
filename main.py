@@ -19,7 +19,7 @@ def add_bg_from_url(url):
          </style>
          """, unsafe_allow_html=True)
 
-# URL da imagem
+# image URL
 image_url = 'https://revistaadega.uol.com.br/media/evolucao_do_vinho_tinto.jpeg'
 add_bg_from_url(image_url)
 
@@ -27,7 +27,7 @@ st.markdown("""
 <style>
 .title {
     font-size:30px !important;
-    color: #000000; /* Preto */
+    color: #000000; 
     font-weight: bold; 
 }
 </style>
@@ -36,12 +36,12 @@ st.markdown("""
 st.markdown("""
 <style>
 .text-box {
-    background-color: rgba(255, 255, 255, 0.8);  /* Branco com transparência */
-    border-radius: 10px;  /* Bordas arredondadas */
-    padding: 10px;  /* Preenchimento interno */
-    margin: 10px 0;  /* Margem exterior */
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;  
+    padding: 10px;  
+    margin: 10px 0;  
     font-size:16px !important;
-    color: #000000; /* Preto */
+    color: #000000; 
 }
 </style>
 """, unsafe_allow_html=True)
@@ -234,7 +234,7 @@ if page == 'Sales Strategy':
     st.text('')
     st.markdown("""
     <div class="text-box">
-    This screen can showcase a curated list of 10 wines chosen for their high ratings and popularity.<br>
+    This screen can showcase a curated list of 10 wines chosen for their high ratings and popularity.<br>ss
     By leveraging data on customer preferences and sales trends, it recommends wines that are likely to appeal to a broad audience, thus increasing sales potential.
     </div>
     """, unsafe_allow_html=True)
